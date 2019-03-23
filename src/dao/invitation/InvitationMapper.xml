@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.invitation.InvitationMapper">
+	<!-- ================================================================================== -->
+	<!-- （吴永杰）根据条件模糊查询帖子：getByConditions（地址，租金，专区类型，分页） -->
+	<select id="getByConditions" resultType="Invitation">
+		SELECT i.* FROM invitation i
+		<where>
+			<if test="address!=''">
+				and i.address like CONCAT
+				('%',#{address},'%')
+			</if>
+			<if test="minPrice>0">
+				and i.price &gt; #{minPrice}
+			</if>
+			<if test="maxPrice>0">
+				and i.price &lt; #{maxPrice}
+			</if>
+			<if test="type!=1">
+				and i.type=#{type}
+			</if>
+		</where>
+		limit #{start},5
+	</select>
+	<!-- ================================================================================== -->
+	<!-- （吴永杰）根据条件模糊查询帖子数量：getByConditions（地址，租金，专区类型） -->
+	<select id="getCount" resultType="int">
+		SELECT count(1) FROM invitation i
+		<where>
+			<if test="address!=''">
+				and i.address like CONCAT
+				('%',#{address},'%')
+			</if>
+			<if test="minPrice>0">
+				and i.price &gt; #{minPrice}
+			</if>
+			<if test="maxPrice>0">
+				and i.price &lt; #{maxPrice}
+			</if>
+			<if test="type!=1">
+				and i.type=#{type}
+			</if>
+		</where>
+	</select>
+	<!-- ================================================================================== -->
+	<!-- （吴永杰）根据id查询帖子：getByConditions（地址，租金，专区类型） -->
+	<select id="getInvitationById" resultType="Invitation">
+		SELECT * FROM invitation i WHERE id = #{id}
+	</select>
+	<!-- ================================================================================== -->
+	<!--插入贴子method -->
+	<insert id="addInvitation" parameterType="Invitation">
+		insert into invitation(address,price,title,discripe,type)
+        values(#{address},#{price},#{title},#{discripe},#{type})
+	</insert>
+	<!-- ================================================================================== -->
+
+</mapper>

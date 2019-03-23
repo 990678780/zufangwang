@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"     
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">    
+<!--     
+    namespace：必须与对应的接口全类名一致  CommentMapper.java  
+    id ：必须与对应接口的某个对应的方法名一致即必须要和CommentMapper.java接口中的方法同名。  
+ -->    
+ <mapper namespace="dao.comment.CommentMapper">  
+    <!-- 查询所有 根据帖子ID来遍历：queryAll（帖子ID） -->
+      
+       <!-- 链表查询需要用resultmap建立映射关系 -->
+       <resultMap type="Comment" id="queryAll">
+       <id property="id" column="id" />
+       <result property="createTime" column="createTime" />
+       <result property="context" column="context" />
+       <association property="user" javaType="User" >
+       <id property="id" column="u_id" />
+       <result property="name" column="name" /></association>
+       </resultMap>
+       <select id="queryAll" resultMap="queryAll" parameterType="int">    
+         SELECT c.id,c.createTime,c.context ,u.name FROM `comment` c,`user` u WHERE c.iId=#{iId} AND c.uid=u.id
+       </select> 
+      <!-- 新增  添加评论：add（评论人id，帖子id，评论内容） -->
+      <insert id="add" parameterType="Comment"  >
+         insert into `comment`(iId,uid,context) values (#{comment.iId},#{comment.uid},#{comment.context})
+      </insert>
+
+      <!-- 删除 删除评论：del（id） -->
+      <delete id="del" parameterType="int">
+          delete  from `comment` where id=#{id}    
+      </delete>
+      <select id="count" parameterType="int">
+        SELECT COUNT(*) AS COUNT FROM `comment` WHERE iId=#{iId}
+      </select>
+ </mapper> 
+
+
+
+
+
+
+
+
+
+
+
+
