@@ -1,0 +1,95 @@
+﻿input{margin:0}
+.placeholder {color:#aaa}
+::-webkit-input-placeholder {color:#aaa}
+::-moz-placeholder {color:#aaa}
+input:-moz-placeholder {color:#aaa}
+.chk-vm{vertical-align:middle}
+.fc-gray{color:#707070}
+.tab-box{ margin:10px auto 0;}
+.tab-tit{ padding-left:5px}
+.tab-tip{color:#4b4b4b; font-size:14px; float:left; padding:4px 0 0 17px}
+.tab-list{border-bottom:1px solid #6ba001; font-size:12px; margin-left:137px; padding-left:10px; width:600px;zoom:1}
+.tab-list li{ background-color:#f5f6f4; border:1px solid #ddd; border-bottom:none; color:#4b4b4b; cursor:pointer; float:left; _display:inline; height:25px; 
+	line-height:24px; margin-right:8px; padding:0 17px}
+.tab-list li.current{ background-color:#fff; border:1px solid #6ba001;border-bottom:none; color:#6ba001;font-weight: bold; top:1px; position:relative}
+.tab-btn li a,.tab-btn li a:hover{color:#4b4b4b; text-decoration:none}
+.field{margin-bottom:18px;text-align:left;vertical-align:middle}
+.field .field-tit,.reg-field .field-tit{color:#4b4b4b;float:left;line-height:32px;text-align:left;font-size:14px; padding-right:4px; width:82px}
+.tab-input-text{background:#fff;border: 1px solid #C8C8C8;box-shadow: 1px 1px 1px 0 #EAEAEA inset;float:left; font-size:14px;height:22px;line-height:22px;padding:3px 3px 3px 8px;vertical-align:middle;width:250px}
+.checkcode .tab-input-text{width:120px}
+.checkcode label img{margin-left:10px;height: 30px;width: 120px;cursor: pointer;}
+.field-tips{float:left; font-size:12px;padding:6px 0 0 5px}
+.submit-box,.N-txt1{padding-left:86px; margin-bottom:13px}
+.N-txt2{padding-left:86px;margin-bottom:13px}
+.N-box1{padding:0 30px}
+.N-txt3 span{display:inline-block;padding-right:10px}
+.gj-agreement{margin:-7px 0 6px 86px}
+.gj-agreement-cont{ float:left;height:30px;line-height:30px;width:auto}
+.msg-submit{color:#EC3701;font-size:14px}
+.tab-cont{margin-left:34px;color:#4B4B4B;padding-top:20px;zoom:1;}
+/*btns*/
+.btn-org{background:#fd8000;border:none; color:#fff; font-size:16px; font-weight:bold;height:46px;text-align:center; width:140px}
+.btn-org:hover{background:#fd6000}
+.btn-gray1{background:#ebeaea;border:1px solid #c8c8c8;color:#4b4b4b;font-size:14px; font-weight:bold;height:30px;line-height:30px; margin-left:20px; text-align:center;width:152px}
+.btn-gray1:hover{background:#f9f9f9;color:#4b4b4b; text-decoration:none;}
+/*other-login*/
+.pub-other-login{font-size:12px;margin-left:88px}
+.other-login-txt{color:#4b4b4b;line-height:22px;padding:10px 0 4px}
+.other-login-list{}
+.other-login-list li{float:left;display:inline; margin-bottom:7px; white-space:nowrap;}
+.split-line2{color:#ccc;padding:0 10px}
+.other-login-ico{float:left; height:16px; margin-right:3px; vertical-align:middle; width:16px}
+.ico-qq{background:url(../images/qq.png) no-repeat}
+.ico-sinaweibo{background:url(../images/weibo.png) no-repeat}
+.ico-tencent{background:url(../images/tencent.png) no-repeat}
+.ico-feixin{background:url(../images/feixin.png) no-repeat}
+/*error-tips*/
+.error-box{padding:0px 0 0 78px}
+.msg-box{float:left; height:30px; position:relative;}
+.error-tips{display:block;padding-left:15px; position:relative}
+.V5 .validatorMsg {font-size:14px;display:inline-block; height:30px; line-height:30px; padding-left:36px;vertical-align:middle}
+.V5 .validatorFocus{position:static;background:url(../images/validatorinit.png) no-repeat 10px 4px;color:#1188d3!important}
+.V5 .validatorError{color:#f60;background:url(../images/validatorerror.png) no-repeat 10px 4px;}
+.V5 .validatorValid{background:url(../images/validatorvalid.png) no-repeat 10px 4px;}
+.validatorPhone{background: url(../images/validatorinit.png) no-repeat 10px 4px;color:#4b4b4b!important;}
+.reg-tip{margin:0 0 18px 38px}
+.border-focus{border:1px solid #8ec8ec; box-shadow:0 0 2px #8ec8ec}
+.border-error{border:1px solid #f6a187; box-shadow:0 0 2px #f6a187}
+.pw-strength{clear:both;position:relative;left:86px;top:8px;width:180px}
+.pw-txt{padding-top:2px;width:180px; overflow:hidden;}
+.pw-txt span{color:#707070;float:left; font-size:12px; text-align:center;width:58px}
+.pw-bar,.pw-bar-on{background:url(../images/pw_bar.png) no-repeat;height:14px; overflow:hidden;width:176px}
+.pw-bar-on{background-position:0 -14px;width:0; position:absolute;top:0;left:0;
+	transition:width 0.5s ease-in;
+	-moz-transition:width 0.5s ease-in;
+	-webkit-transition:width 0.5s ease-in;
+	-o-transition:width 0.5s ease-in;}
+.pw-weak .pw-bar-on{width:60px}
+.pw-medium .pw-bar-on{width:120px}
+.pw-strong .pw-bar-on{width:172px}
+.getcode{clear:both;padding-left:86px; position: relative; top:8px}
+.limited-time,.time-button{ float:left; width:153px; height:30px;padding:0px 10px;background-color:#f4f4f4;color:#a0a0a0;font-size:12px;border:1px solid #c8c8c8;display:inline-block;vertical-align:middle; margin:0}
+.time-button{color:#4b4b4b; background-color:#f0f0f0;padding:0px 10px; cursor:pointer; width:153px}
+.time-button:hover{background:#f9f9f9}  
+.getcode .validatorMsg{color:#707070;font-size:12px;padding-left:10px}
+
+.count-second{ padding:3px; height:24px;*height:30px;_height:32px;font-size: 12px;line-height: 24px;*line-height:30px;_line-height:32px; *display:none}
+.other-login-ico {_cursor:pointer;}
+.msg-box{*float:none;}
+
+/**
+未登录
+**/
+.spacing1{ display:inline-block; width:0.5em}
+.spacing2{ display:inline-block; width:2em}
+.noLogin-area{ border-top:dotted 1px #ccc; padding-top:30px; margin-top:28px}
+.noLogin-tab-list{border-bottom:1px solid #6ba001; font-size:12px; margin-left:116px;width:600px;zoom:1}
+.noLogin-tab-list li{ background-color:#f5f6f4; border:1px solid #ddd; border-bottom:none; color:#4b4b4b; cursor:pointer; float:left; _display:inline; height:28px; line-height:27px; margin-right:8px; padding:0 17px; font-size:14px}
+.noLogin-tab-list li.current{border:1px solid #6ba001;border-bottom:none; color:#fff;top:1px; position:relative; background:#62af01}
+.noLogin-tab-cont{margin-left:34px;color:#4B4B4B;padding-top:20px;zoom:1;}
+.noLogin-tab-input-text{background:#fff;border: 1px solid #C8C8C8;box-shadow: 1px 1px 1px 0 #EAEAEA inset;float:left; font-size:14px;height:22px;line-height:22px;padding:3px 3px 3px 8px;vertical-align:middle;width:250px}
+.job-field-tips{ font-size:14px;margin:6px 0 0 5px; float:left;color:#0066cd; text-decoration:none}
+.job-field-tips:hover{color:#e30;text-decoration:underline}
+.job-btn-org{background:#fd8000;border:none; color:#fff; font:normal 24px/50px "Microsoft YaHei"; height:50px;text-align:center; width:160px; padding:0;}
+.job-btn-org:hover{background:#fd6000}
+.noLogin-tab-cont label.field-tit{ text-align:left}

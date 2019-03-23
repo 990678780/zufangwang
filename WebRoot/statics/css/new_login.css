@@ -1,0 +1,188 @@
+﻿.banner{
+	background: url(../images/login_banner2.jpg) center top no-repeat;
+    height: 600px;
+    width: 100%;
+}
+.login-new{
+	padding: 40px 80px !important;
+}
+.login{
+	padding: 70px 80px;
+    background-color: #fff;
+    width: 540px;
+    position: absolute;
+    right:50%;
+    top: 96px;
+    border-radius: 2px;
+    margin-right: -350px;
+}
+body .active{
+	background: url(../images/login_bottom.png) center bottom no-repeat;
+	color: none !important;
+	border-bottom: none !important;
+}
+.login-tab a{
+	font-size: 14px;
+	color: #3a3b3c;
+	display: inline-block;
+	width: 49%;
+	
+}
+.unit-inp input{
+	border-left: none;
+	border-right:none;
+	border-top: none;
+	border-radius: 2px;
+	width: 288px;
+	height: 70px;
+	border-color:#ededed;
+	-webkit-box-shadow: 0 0 0 1000px white inset;
+	margin-top: 10px;
+}
+input::-webkit-input-placeholder{
+	color:#bababa;
+}
+input:-moz-placeholder{
+	color:#bababa;
+}
+input::-moz-placeholder{
+	color:#bababa;
+}
+input:-ms-input-placeholder{
+	color:#bababa;
+}
+#forget_psw{
+	text-decoration: none;
+}
+.unit-inp .inp-code{
+	width: 288px;
+	height: 60px;
+}
+.login-tab{
+	width: 288px;
+	height: 37px;
+	margin-bottom: 0px;
+	border-bottom: 1px solid #ededed;
+}
+.prompt input{
+	border-color:#ededed;
+}
+.unit-inp .getCodee{
+	width: 80px;
+	height: 30px;
+	border-radius: 2px;
+	line-height: 30px;
+	position: absolute;
+	top: 24%;
+	right: 0px;
+}
+
+.login-left{
+	float: left;
+	padding-right: 80px;
+	border-right: 1px dashed #ededed;
+}
+.login-right{
+	float: left;
+	padding-left: 80px;
+}
+.center-box .btn-red{
+	width: 288px;
+	height: 45px;
+}
+body .unit-relative{
+	position: relative;
+	margin-top: 10px ;
+}
+.inp-code{
+	margin-bottom: 8px;
+}
+.mt35{
+	margin-top: 50px;
+}
+.unit-inp{
+	margin-top: 0px;
+}
+.enter2{
+	margin-top: 10px ;
+}
+.login-inp{
+	margin-bottom: 0px;
+}
+.center-box .register{
+	margin-top: 5px;
+	margin-bottom: 19px;
+}
+#login_index_zhuce{
+	display: inline-block;
+	margin-top: 10px;
+	text-decoration: none;
+}
+.unit-inp1 input{
+	margin-top: 10px;
+}
+.unit-inp2 input{
+	margin-top: 10px;	
+}
+.center-box .regg{
+	margin-top: 100px;
+}
+.center-box-new{
+	margin-top:30px !important;
+}
+.regg-new{
+	margin-top: 150px !important;
+}
+.regg-new1{
+	margin-top: 130px !important;
+}
+.center-box{
+	margin-bottom: 0px;
+} 
+.login-bot-text{
+	margin-top: 0px;
+}
+.login-bot-text a{
+	color: #ee3843;
+}
+.input_checked { 
+   width: 13px;
+   margin-bottom: 3px;
+} 
+/*适配mac*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5), /* 注意这里的写法比较特殊 */
+       only screen and (-o-min-device-pixel-ratio: 3/2),
+       only screen and (min-device-pixel-ratio: 1.5) {
+	.banner{
+		background: url(../images/login_banner2@3x.png) center center no-repeat ;
+		background-size: cover;
+	}
+	body .active{
+		background: url(../images/login_bottom@3.png) center bottom no-repeat ;
+		background-size:145px auto;
+	}
+}
+/* 
+.input_checked + label { 
+    background-color: #FFF; 
+    width: 20px;
+    height: 20px;  
+    border-radius: 5px; 
+    display: inline-block; 
+    float: left; 
+} 
+.input_checked:checked + label { 
+    background-color: #ECF2F7; 
+    color: #243441;
+    float: left; 
+    position: relative;
+    text-align: center;
+} 
+ 
+.input_checked:checked + label:after { 
+    content: '\2714'; //勾选符号 
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}*/

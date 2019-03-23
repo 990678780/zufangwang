@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.user.UserMapper">
+  <resultMap type="User" id="userList">
+        <result property="id" column="id" />
+        <result property="phone" column="phone" />
+        <result property="password" column="password" />
+        <result property="sex" column="sex" />
+        <result property="picturepath" column="picturepath" />
+    </resultMap>
+    <!-- 用户登录 -->
+    <select id="login"  parameterType="User" resultType="User">
+        select * from user where phone=#{phone} 
+    </select>
+    <!-- 通过userId获取user -->
+    <select id="queryById" parameterType="String" resultType="User">
+       select * from user where id=#{id}
+    </select>
+    <!-- 增加用户信息 -->
+    <insert id="register" parameterType="User">
+        insert into user
+        (phone,password,sex,picturepath)
+        values
+        (#{phone},#{password},#{sex},#{picturepath})
+    </insert>
+    <!-- 更新用户信息 -->
+    <update id="update" parameterType="User">
+        update user set
+        phone=#{phone},sex=#{sex},picturepath=#{picturepath}
+        where id = #{id}
+    </update>
+    <!-- 修改当前用户密码（手机号，新密码） -->
+    <update id="updatePwd"  parameterType="User">
+        update user set password= #{password}
+        where phone = #{phone}
+    </update>
+    <!-- 按照手机号查询User对象 -->
+    <select id="selectphoneUser"  resultType="User">
+    select * from user where phone=#{phone}
+    </select>
+   
+</mapper>

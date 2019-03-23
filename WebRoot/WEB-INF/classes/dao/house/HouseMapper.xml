@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.house.HouseMapper">
+
+
+    <resultMap id="houseMap" type="House">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="square" column="square"/>
+        <result property="price" column="price"/>
+        <result property="special" column="special"/>
+        <result property="floor" column="floor"/>
+        <result property="roomNum" column="roomNum"/>
+        <result property="zTypeContext" column="zTypeContext"/>
+        <result property="createTime" column="createTime"/>
+        <result property="address" column="address"/>
+        <result property="hType" column="hType"/>
+        <result property="station" column="station"/>
+        <result property="floor" column="floor"/>
+
+        <!--其中一种写法-->
+        <association property="area" javaType="Area">
+            <id property="id" column="id"/>
+            <result property="areaName" column="areaName"/>
+        </association>
+        <association property="city" javaType="City">
+            <id property="id" column="id"/>
+            <result property="name" column="cityName"/>
+
+        </association>
+        <association property="around" javaType="Around">
+            <id property="id" column="id"/>
+            <result property="traffic" column="traffic"/>
+            <result property="food" column="food"/>
+            <result property="shop" column="shop"/>
+            <result property="life" column="life"/>
+        </association>
+
+    </resultMap>
+
+    <!--根据houseId查询-->
+    <select id="queryById" resultMap="houseMap" parameterType="int">
+        SELECT
+            h.id,
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address,
+            h.station,
+            h.hType,
+            c.cityName,
+            are.areaName,
+            aro.food,
+            aro.shop,
+            aro.life,
+            aro.traffic
+        FROM zwj.house h, zwj.area are, zwj.around aro, zwj.city c
+        WHERE h.id = #{id} and h.areaId = are.id and h.aroundId = aro.id and h.cityId = c.id
+    </select>
+
+    <!--查询所有房源-->
+    <select id="queryAll" resultType="House" parameterType="int">
+        select
+            h.id,
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address
+        from zwj.house h
+        order by createTime desc
+        limit #{pNum}, 2;
+    </select>
+
+    <!--根据区域条件查询合适房源-价格从高到低-->
+    <select id="queryByC_PriceDown" resultType="House" parameterType="integer">
+        select
+            h.id,
+
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address
+        from zwj.house h
+        where areaId = #{areaId}
+        order by price desc;
+    </select>
+
+    <!--根据区域条件查询合适房源，默认时间排序-->
+    <select id="queryByeAreaName" resultType="House" parameterType="string">
+        select
+            h.id,
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address
+        from zwj.house h, zwj.area a
+        where a.eAreaName = #{eAreaName} and h.areaId = a.id
+        order by h.createTime desc;
+    </select>
+    <!--根据区域条件查询合适房源-价格从低到高-->
+    <select id="queryByC_PriceUp" resultType="House" parameterType="integer">
+        select
+            h.id,
+
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address
+        from zwj.house h
+        where areaId = #{areaId}
+        order by price;
+    </select>
+
+    <!--根据地铁条件查询合适房源-价格从高到低-->
+    <select id="queryByC_SquareDown" resultType="House" parameterType="integer">
+        select
+            h.id,
+
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address
+        from zwj.house h
+        where subwayId = #{subwayId}
+        order by price desc;
+    </select>
+
+    <!--根据地铁条件查询合适房源-价格从低到高-->
+    <select id="queryByS_SquareUp" resultType="House" parameterType="integer">
+        select
+            h.id,
+            h.title,
+            h.square,
+            h.price,
+            h.special,
+            h.floor,
+            h.roomNum,
+            h.zTypeContext,
+            h.createTime,
+            h.address
+        from zwj.house h
+        where subwayId = #{subwayId}
+        order by price;
+    </select>
+
+
+    <!--根据条件查询-->
+    <select id="queryByCondition" resultType="House">
+        select *
+        # h.id,
+        # h.title ,
+        # h.square ,
+        # h.price ,
+        # h.special ,
+        # h.floor ,
+        # h.roomNum ,
+        # h.zTypeContext ,
+        # h.createTime,
+        # h.address
+        from zwj.house h
+        <where>
+            <if test="areaId  &gt; 0">
+                and h.areaId = #{areaId}
+            </if>
+            <if test="streetId  &gt; 0">
+                and h.streetId = #{streetId}
+            </if>
+            <if test="price01 != 0 and price02 != 0">
+                and (h.price between #{price01} and #{price02})
+            </if>
+            <if test="price01 != 0 and price02 == 0">
+                and h.price &lt;= #{price01}
+            </if>
+            <if test="price01 == 0 and price02  != 0">
+                and h.price &gt;= #{price02})
+            </if>
+
+            <if test="zType  != 0">
+                and h.zType = #{zType}
+            </if>
+            <if test="roomNum  != 0">
+                and h.roomNum = #{roomNum}
+            </if>
+            <if test="special  != 0">
+                and h.special like '%${special}%'
+            </if>
+        </where>
+        order by createTime desc
+        limit #{sqlNum},2
+    </select>
+
+
+    <!--添加房源信息-->
+    <insert id="addHouse" parameterType="House">
+        INSERT into house (address, square, price, zType, roomNum, floor, special, subwayId, areaId, cityId, aroundId, hType)
+        VALUES (#{address}, #{square}, #{price}, #{zType}, #{roomNum}, #{floor}, #{special}, #{subwayId}, #{areaId},
+                            #{cityId}, #{aroundId}, #{hType})
+    </insert>
+
+    <!--删除房源信息-->
+    <delete id="delHouse" parameterType="int">
+        DELETE FROM house
+        WHERE id = #{id}
+    </delete>
+
+    <!--获取区域英文名字-->
+    <select id="queryeAreaName" resultType="Area">
+        select a.eAreaName
+        from zwj.area a;
+    </select>
+
+</mapper>
